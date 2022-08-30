@@ -1,5 +1,5 @@
-const collectionMaker=require("../collectionMaker")
-const client = require("../bot").client;
+const collectionMaker=require("app/collectionMaker")
+const client = require("app/bot").client;
 client.on("messageReactionRemove",async (MesReact,user)=>{
     if (user.bot){
         return
