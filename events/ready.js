@@ -1,4 +1,4 @@
-const client = require("app/bot").client;
+const client = require(path.resolve(__dirname, './bot')).client;
 const {createCommand}=require('app/dataHandler')
 client.on("ready", async () => {
   //basically sets the prescense of the bot
