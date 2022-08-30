@@ -1,5 +1,5 @@
-const collectionMaker=require(path.resolve(__dirname, './collectionMaker'))
-const client = require(path.resolve(__dirname, './bot')).client;
+const collectionMaker=require(path.resolve(__dirname, "../collectionMaker"))
+const client = require(path.resolve(__dirname, "../bot")).client
 client.on("messageReactionAdd",async (MesReact,user)=>{
     if (user.bot){
         return

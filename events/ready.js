@@ -1,5 +1,5 @@
-const client = require(path.resolve(__dirname, './bot')).client;
-const {createCommand}=require('app/dataHandler')
+const client = require(path.resolve(__dirname, "../bot")).client
+const {createCommand}=require(path.resolve(__dirname, "../dataHandler"))
 client.on("ready", async () => {
   //basically sets the prescense of the bot
   client.user.setPresence({
