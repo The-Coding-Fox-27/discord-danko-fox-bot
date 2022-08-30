@@ -2,7 +2,7 @@ const discord= require("discord.js")
 const fs= require("fs")
 console.log(process.cwd())
 require('dotenv').config()
-
+path=require("path")
 
 /*
 Step 1: have bot set up
