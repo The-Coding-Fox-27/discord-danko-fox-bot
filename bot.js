@@ -66,4 +66,4 @@ fs.readdir("./events",(err,files)=>{
 module.exports.client=client
 module.exports.slashDataList=slashDataList
 
-client.login(process.env.Token);
+client.login(process.env.TOKEN);
