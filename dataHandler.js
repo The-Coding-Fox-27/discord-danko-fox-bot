@@ -1,4 +1,4 @@
-const slashDataList=require("app/bot").slashDataList
+const slashDataList=require(path.resolve(__dirname, './bot')).slashDataList
 
 async function createCommand(client, guildId) {
   var Data=[]
