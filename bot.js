@@ -43,13 +43,13 @@ fs.readdir("./events",(err,files)=>{
 })
 
 // this is our command handler
-fs.readdirSync("./slashCommands/").forEach((dir)=>{
-    fs.readdir(`./slashCommands/${dir}`,(err,files)=>{
+
+    fs.readdir(`./slashCommands/test`,(err,files)=>{
         if(err) throw err
 
         var slashFiles= files.filter(file=>file.endsWith(".js"))
         slashFiles.forEach(file=>{
-            var slashCommand=require(`./slashCommands/${dir}/${file}`)
+            var slashCommand=require(`./slashCommands/test/${file}`)
             try{
                 client.slashCommands.set(slashCommand.help.name,slashCommand)
                 slashDataList.push(slashCommand.slashData)
@@ -58,7 +58,7 @@ fs.readdirSync("./slashCommands/").forEach((dir)=>{
             }
         })
     })
-})
+
 
 //When we need information to be sent to files
 
