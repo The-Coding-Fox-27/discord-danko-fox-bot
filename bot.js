@@ -31,7 +31,7 @@ When emote is made to react
 fs.readdir(path.resolve(__dirname, './events'),(err,files)=>{
     eventFiles=files.filter(file=>file.endsWith(".js"))
     eventFiles.forEach(file=>{
-        const event=require(`app/events/${file}`)
+        const event=require(path.resolve(__dirname, './events')+file)
         try{
             client.eventHandler.set(event.name,event)
             
@@ -48,7 +48,7 @@ fs.readdir(path.resolve(__dirname, './events'),(err,files)=>{
 
         var slashFiles= files.filter(file=>file.endsWith(".js"))
         slashFiles.forEach(file=>{
-            var slashCommand=require(`app/slashcommands/test/${file}`)
+            var slashCommand=require(path.resolve(__dirname, './slashcommands/test')+file)
             try{
                 client.slashCommands.set(slashCommand.help.name,slashCommand)
                 slashDataList.push(slashCommand.slashData)
