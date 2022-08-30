@@ -1,6 +1,6 @@
 
 path=require("path")
-const client = require(path.resolve(__dirname, './bot')).client;
+const client = require(path.resolve(__dirname, '../bot')).client;
 
 //when person enters slash command and interacts with it
 client.on("interactionCreate", async (inter) => {
