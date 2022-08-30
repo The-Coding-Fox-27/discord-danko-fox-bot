@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const fs=require("fs")
-const collectionMaker=require(path.resolve(__dirname, './collectionMaker'))
+path=require("path")
+const collectionMaker=require(path.resolve(__dirname, "../../collectionMaker"))
+
 
 module.exports.execute=async(inter)=>{
     
