@@ -1,8 +1,7 @@
 const discord= require("discord.js")
 const fs= require("fs")
 console.log(process.cwd())
-const dotenv=require('dotenv')
-dotenv.config()
+require('dotenv').config()
 
 
 /*
