@@ -42,7 +42,6 @@ fs.readdir("./events",(err,files)=>{
     })
 })
 
-
 // this is our command handler
 fs.readdirSync("./slashCommands/").forEach((dir)=>{
     fs.readdir(`./slashCommands/${dir}`,(err,files)=>{
