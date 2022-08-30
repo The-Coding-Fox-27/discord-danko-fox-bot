@@ -1,4 +1,4 @@
-const client = require("../bot").client;
+const client = require("app/bot").client;
 
 //when person enters slash command and interacts with it
 client.on("interactionCreate", async (inter) => {
