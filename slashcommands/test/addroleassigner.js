@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const fs=require("fs")
-const collectionMaker=require("../../collectionMaker")
+const collectionMaker=require("app/collectionMaker")
 
 module.exports.execute=async(inter)=>{
     
