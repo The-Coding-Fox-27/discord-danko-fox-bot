@@ -1,7 +1,7 @@
-const roleList=require("app/slashcommands/test/addroleassigner").roleList
-const collectionMaker=require("app/collectionMaker")
-const client =require("app/bot").client
-const reactionComp=require("app/reactionComp")
+const roleList=require(path.resolve(__dirname, './slashcommands/test/addroleassigner').roleList
+const collectionMaker=require(path.resolve(__dirname, './collectionMaker'))
+const client =require(path.resolve(__dirname, './bot')).client
+const reactionComp=require(path.resolve(__dirname, './reactionComp'))
 module.exports.execute = async (inter) => {
     var txt=""
     
