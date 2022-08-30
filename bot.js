@@ -29,7 +29,7 @@ When interaction is created
 When emote is made to react
 */
 
-fs.readdir("app/events",(err,files)=>{
+fs.readdir(path.resolve(__dirname, './events'),(err,files)=>{
     eventFiles=files.filter(file=>file.endsWith(".js"))
     eventFiles.forEach(file=>{
         const event=require(`app/events/${file}`)
@@ -44,7 +44,7 @@ fs.readdir("app/events",(err,files)=>{
 
 // this is our command handler
 
-    fs.readdir(`app/slashcommands/test`,(err,files)=>{
+    fs.readdir(path.resolve(__dirname, './slashcommands/test'),(err,files)=>{
         if(err) throw err
 
         var slashFiles= files.filter(file=>file.endsWith(".js"))
