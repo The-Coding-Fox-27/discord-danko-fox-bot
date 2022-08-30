@@ -30,7 +30,9 @@ When emote is made to react
 
 fs.readdir(path.resolve(__dirname, './events'),(err,files)=>{
     eventFiles=files.filter(file=>file.endsWith(".js"))
+    console.log(eventFiles)
     eventFiles.forEach(file=>{
+        console.log(file)
         const event=require(path.resolve(__dirname, './events')+"/"+file)
         try{
             client.eventHandler.set(event.name,event)
