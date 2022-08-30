@@ -1,4 +1,4 @@
-const collectionMaker=require("app/collectionMaker")
+const collectionMaker=require(path.resolve(__dirname, './collectionMaker'))
 const client = require("app/bot").client;
 client.on("messageReactionRemove",async (MesReact,user)=>{
     if (user.bot){
