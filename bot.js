@@ -1,3 +1,4 @@
+console.log("hello world")
 const discord= require("discord.js")
 const fs= require("fs")
 console.log(process.cwd())
