@@ -1,7 +1,6 @@
-console.log("hello world")
 const discord= require("discord.js")
 const fs= require("fs")
-console.log(process.cwd())
+// console.log(process.cwd())
 require('dotenv').config()
 path=require("path")
 
@@ -31,9 +30,9 @@ When emote is made to react
 
 fs.readdir(path.resolve(__dirname, './events'),(err,files)=>{
     eventFiles=files.filter(file=>file.endsWith(".js"))
-    console.log(eventFiles)
+    
     eventFiles.forEach(file=>{
-        console.log(file)
+        
         const event=require(path.resolve(__dirname, './events')+"/"+file)
         try{
             client.eventHandler.set(event.name,event)

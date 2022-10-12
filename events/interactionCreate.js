@@ -1,5 +1,4 @@
 const client = require(path.resolve(__dirname, "../bot")).client
-console.log(path.resolve(__dirname, "../bot"))
 //when person enters slash command and interacts with it
 client.on("interactionCreate", async (inter) => {
 
