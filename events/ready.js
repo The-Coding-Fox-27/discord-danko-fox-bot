@@ -17,7 +17,7 @@ client.on("ready", async () => {
   }
   )
   const Channels = client.channels
-  channelList=await collectionMaker.roleMesageModel.find({})
+  channelList=await collectionMaker.roleMessageModel.find({})
   channelList.forEach(async (i)=>{
     targetChannel=await Channels.fetch(i.channelid)
     await targetChannel.messages.fetch(i.messageid)
