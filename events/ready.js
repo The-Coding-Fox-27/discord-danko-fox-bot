@@ -23,6 +23,14 @@ client.on("ready", async () => {
     await targetChannel.messages.fetch(i.messageid)
   })
  
+  const today=new Date(Date.now())
+  today.toDateString()
+  hornyList= await collectionMaker.hornyModel.find({sentence:today})
+  hornyList.forEach(async(i)=>{
+    targetChannel=await Channels.fetch(i.channelid)
+    targetUser=await targetChannel.member.fetch(i.userid)
+    await targetChannel.send(`Okay @${targetUser.nickname}, you have served your sentence. You are free from horny jail`)
+  })
   
   
 

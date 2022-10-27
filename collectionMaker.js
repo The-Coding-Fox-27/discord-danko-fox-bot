@@ -15,10 +15,16 @@ const roleMessageSchema=new mongoose.Schema({
     mesContent:String,
 })
 
+const hornySchema=new mongoose.Schema({
+    userid:String,
+    sentence: String,
+    channelid:String
+})
+
 
 const roleModel=mongoose.model("Role",roleSchema)
-const  roleMessageModel=mongoose.model("Message",roleMessageSchema)
-
+const roleMessageModel=mongoose.model("Message",roleMessageSchema)
+const hornyModel=mongoose.model("Horny",hornySchema)
 
 function createRoleDocument(roleid,emoji,channel){
     try{
@@ -54,7 +60,27 @@ function createMessageDocument(messageid,mesContent,channelid){
     }
     
 }
+
+function createHornyDocument(userid,sentence,channelid){
+    try{
+        const hornydocument=new hornyModel({
+            userid:userid,
+            sentence:sentence,
+            channelid:channelid
+        })
+        hornydocument.save(function(err){
+            if(err){
+                console.log(err)
+            }
+        })
+    }catch(err){
+        console.log(err)
+    }
+    
+}
 module.exports.roleModel=roleModel
 module.exports.roleMessageModel=roleMessageModel
+module.exports.hornyModel=hornyModel
 module.exports.createRoleDocument=createRoleDocument
 module.exports.createMessageDocument=createMessageDocument
+module.exports.createHornyDocument=createHornyDocument
