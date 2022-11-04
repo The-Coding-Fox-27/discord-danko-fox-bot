@@ -18,7 +18,7 @@ const roleMessageSchema=new mongoose.Schema({
 
 const hornySchema=new mongoose.Schema({
     userid:String,
-    sentence: String,
+    sentence: Date,
     channelid:String
 })
 
