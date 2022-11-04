@@ -3,7 +3,6 @@ const fs=require("fs")
 path=require("path")
 const collectionMaker=require(path.resolve(__dirname, "../../collectionMaker"))
 
-
 module.exports.execute=async(inter)=>{
     
     const id=inter.options.getRole("role").id
@@ -13,7 +12,6 @@ module.exports.execute=async(inter)=>{
     //First check if document exist
     roleDoc=await collectionMaker.roleModel.findOne({roleid:id,channel:channel})
 
-    
     if(roleDoc){
         await roleDoc.updateOne({emoji:emoji})
    //if not create document 
@@ -28,8 +26,7 @@ module.exports.execute=async(inter)=>{
 module.exports.roleList=async()=>{
     return await collectionMaker.roleModel.find({})
 }
-  
-    
+      
 module.exports.help = {
     name: "addrolesassigner",
    

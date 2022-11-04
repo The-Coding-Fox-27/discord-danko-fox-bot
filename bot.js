@@ -45,20 +45,19 @@ fs.readdir(path.resolve(__dirname, './events'),(err,files)=>{
 
 // this is our command handler
 
-    fs.readdir(path.resolve(__dirname, './slashcommands/test'),(err,files)=>{
-        if(err) throw err
-
-        var slashFiles= files.filter(file=>file.endsWith(".js"))
-        slashFiles.forEach(file=>{
-            var slashCommand=require(path.resolve(__dirname, './slashcommands/test')+"/"+file)
-            try{
-                client.slashCommands.set(slashCommand.help.name,slashCommand)
-                slashDataList.push(slashCommand.slashData)
-            } catch(err){
-                return console.log(err)
-            }
-        })
+fs.readdir(path.resolve(__dirname, './slashcommands/test'),(err,files)=>{
+    if(err) throw err
+    var slashFiles= files.filter(file=>file.endsWith(".js"))
+    slashFiles.forEach(file=>{
+        var slashCommand=require(path.resolve(__dirname, './slashcommands/test')+"/"+file)
+        try{
+            client.slashCommands.set(slashCommand.help.name,slashCommand)
+            slashDataList.push(slashCommand.slashData)
+        } catch(err){
+            return console.log(err)
+        }
     })
+})
 
 
 //When we need information to be sent to files

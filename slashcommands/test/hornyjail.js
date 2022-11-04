@@ -4,21 +4,37 @@ path=require("path")
 const collectionMaker=require(path.resolve(__dirname, "../../collectionMaker"))
 
 module.exports.execute = async (inter) => {
-
     const userid=inter.options.getUser("sinner").id
-    const duration=(inter.options.getString("duration"))
-    const channel=inter.channel.id
-    const currentdate= new Date(Date.now())
-    currentdate.setDate(currentdate.getDate+duration)
-    currentdate.toDateString()
-    collectionMaker.createHornyDocument(userid,currentdate,channel)
-    var member=await inter.guild.member.fetch(userid)
-    var searchRole=await inter.guild.roles.cache.find(role=>role.name=="horny jail")
-    member.roles.add(searchRole)
-    inter.channel.send(`Hear ye, hear ye @${member.nickname} has been placed in horny jail. Pray for your sins`)
+    var member=await inter.guild.members.fetch(userid)
+    var searchRole=await inter.guild.roles.cache.find(role=>role.name=="Horny jail")
+    if (!searchRole){
+      await inter.guild.roles.create({
+        name:"Horny jail",
+      })
+      searchRole=await inter.guild.roles.cache.find(role=>role.name=="Horny jail")
+    }
+    if(await member.roles.cache.find(role=>role.name=="Horny jail")){
+      return await inter.reply({ content: "USER already is in jail" ,ephemeral: true});
 
-    //ephermeral is basically stating its only seen by you
-    return await inter.reply({ content: "USER has been placed in horny jail" });
+    }else{
+      
+      const duration=(inter.options.getInteger("duration"))
+      const channel=inter.channel.id
+      const currentdate= new Date(Date.now())
+      const date=currentdate.getDate()
+      currentdate.setDate(date+duration)
+      collectionMaker.createHornyDocument(userid,currentdate,channel)
+      
+      
+      member.roles.add(searchRole)
+      inter.channel.send(`Hear ye, hear ye ${member} has been placed in horny jail for ${duration} days. Pray for your sins.`)
+      // setTimeout(async ()=>{
+      //   await inter.channel.send("hiii")
+      // },10000)
+      //ephermeral is basically stating its only seen by you
+      return await inter.reply({ content: "USER has been placed in horny jail" ,ephemeral: true});
+    }
+    
   };
   
   module.exports.help = {

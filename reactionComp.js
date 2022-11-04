@@ -1,4 +1,3 @@
-
 //function that add based on text and roles
 module.exports.reactionadd=async (roleData,messageData,client)=>{
     var chan= await client.channels.fetch(messageData.channelid)

@@ -3,6 +3,7 @@ const dotenv=require('dotenv')
 dotenv.config()
 mongoose.connect(`mongodb+srv://${process.env.USER_NAME}:${process.env.PASSWORD}@dankodiscord.4hkzbnl.mongodb.net/serverDB`)
 
+//Schema for each category 
 const roleSchema=new mongoose.Schema({
     roleid:String,
     emoji:String,
@@ -21,11 +22,12 @@ const hornySchema=new mongoose.Schema({
     channelid:String
 })
 
-
+//Creating the models
 const roleModel=mongoose.model("Role",roleSchema)
 const roleMessageModel=mongoose.model("Message",roleMessageSchema)
 const hornyModel=mongoose.model("Horny",hornySchema)
 
+//Each model functions
 function createRoleDocument(roleid,emoji,channel){
     try{
         const roledocument=new roleModel({
@@ -78,6 +80,8 @@ function createHornyDocument(userid,sentence,channelid){
     }
     
 }
+
+
 module.exports.roleModel=roleModel
 module.exports.roleMessageModel=roleMessageModel
 module.exports.hornyModel=hornyModel
