@@ -28,9 +28,10 @@ client.on("ready", async () => {
  
   //If bot undergoes maintenace, we will use this to clear horny jail
   const today=new Date(Date.now())
+  const day = new Date(today.getFullYear(), today.getMonth(), today.getDate() )
   const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
   hornyList= await collectionMaker.hornyModel.find({sentence:{
-    $gte: today, 
+    $gte: day, 
     $lt: tomorrow}
   })
   hornyList.forEach(async(i)=>{
