@@ -26,8 +26,8 @@ module.exports.execute = async (inter) => {
       collectionMaker.createHornyDocument(userid,currentdate,channel)
       
       
-      member.roles.add(searchRole)
-      inter.channel.send(`Hear ye, hear ye ${member} has been placed in horny jail for ${duration} days. Pray for your sins.`)
+      await member.roles.add(searchRole)
+      await inter.channel.send(`Hear ye, hear ye ${member} has been placed in horny jail for ${duration} days. Pray for your sins.`)
       // setTimeout(async ()=>{
       //   await inter.channel.send("hiii")
       // },10000)
