@@ -60,7 +60,7 @@ client.on("ready", async () => {
     }catch(err){
       console.log(err)
     }
-    await collectionMaker.hornyModel.deleteOne({userid:userid})
+    await collectionMaker.hornyModel.deleteOne({userid:i.userid})
   })
   
   console.log(`${client.user.tag} is online `);
