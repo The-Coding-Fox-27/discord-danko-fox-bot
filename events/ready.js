@@ -45,7 +45,7 @@ client.on("ready", async () => {
   const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
   console.log(tomorrow)
   hornyList= await collectionMaker.hornyModel.find({sentence:{
-    $gte: day, 
+    // $gte: day, 
     $lt: tomorrow}
   })
   // hornyList= await collectionMaker.roleMessageModel.find({})
