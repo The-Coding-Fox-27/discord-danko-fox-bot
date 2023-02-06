@@ -27,6 +27,8 @@ module.exports.execute = async (inter) => {
         lmao=messageDoc.messageid
         target=await client.channels.cache.get(inter.channel.id).messages.fetch(lmao)
         await target.edit(txt)
+
+  
         reactionComp.reactionremove(messageDoc,inter.client)
         reactionComp.reactionadd(channelRoles,messageDoc,inter.client)
 
