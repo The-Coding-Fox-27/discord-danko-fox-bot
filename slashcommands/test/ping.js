@@ -1,9 +1,9 @@
 module.exports.execute = async (inter) => {
     
-    let roleName= await inter.channel.send("hiiii")
+    
   
     //ephermeral is basically stating its only seen by you
-    return await inter.reply({ content: 'ponffffffg', ephemeral: true });
+    return await inter.reply({ content: 'pong', ephemeral: true });
   };
   
   module.exports.help = {
@@ -13,7 +13,7 @@ module.exports.execute = async (inter) => {
     console.log(client.guilds.cache.get(`${guildID}`).roles.cache.size)
     const data= {
       name:"ping",
-      description:'Replhrying with pong ',
+      description:'Replying with pong ',
     }
     return data
   }

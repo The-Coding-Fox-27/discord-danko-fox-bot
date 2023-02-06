@@ -29,8 +29,8 @@ module.exports.roleList=async()=>{
       
 module.exports.help = {
     name: "addrolesassigner",
-   
   };
+
 module.exports.slashData=(client,guildID)=>{
    const data={
         name:"addrolesassigner",

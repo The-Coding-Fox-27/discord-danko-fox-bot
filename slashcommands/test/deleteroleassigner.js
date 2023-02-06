@@ -11,10 +11,8 @@ module.exports.execute=async(inter)=>{
     return await inter.reply({ content: 'assigned', ephemeral: true });
 }
 
-    
 module.exports.help = {
     name: "deleterolesassigner",
-   
   };
   
 module.exports.slashData=(client,guildID)=>{

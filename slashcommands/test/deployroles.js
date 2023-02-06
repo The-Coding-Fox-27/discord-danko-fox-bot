@@ -4,6 +4,7 @@ const roleList=require(path.resolve(__dirname,"./addroleassigner")).roleList
 const collectionMaker=require(path.resolve(__dirname, "../../collectionMaker"))
 const client =require(path.resolve(__dirname, "../../bot")).client
 const reactionComp=require(path.resolve(__dirname, "../../reactionComp"))
+
 module.exports.execute = async (inter) => {
     var txt=""
     
@@ -21,21 +22,16 @@ module.exports.execute = async (inter) => {
       messageDoc=await collectionMaker.roleMessageModel.findOne({channelid:inter.channel.id})
       
       if(messageDoc){
+
         await messageDoc.updateOne({mesContent:txt})
-        // let messageList=await inter.channel.messages.fetch(`${messageDoc.messageid}`)
-        // console.log(messageList)
-        // console.log(await messageDoc.messageid.toString())
         lmao=messageDoc.messageid
         target=await client.channels.cache.get(inter.channel.id).messages.fetch(lmao)
         await target.edit(txt)
         reactionComp.reactionremove(messageDoc,inter.client)
         reactionComp.reactionadd(channelRoles,messageDoc,inter.client)
 
-
-   
-        
-
       }else{
+        
         message=await inter.channel.send(txt)
         console.log(message)
         console.log(message.id)
@@ -43,6 +39,7 @@ module.exports.execute = async (inter) => {
         reactionComp.reactionadd(channelRoles,message.id,inter.client)
       }
     }
+
     //ephermeral is basically stating its only seen by you
     return await inter.reply({ content: 'done', ephemeral: true });
   };
@@ -50,6 +47,7 @@ module.exports.execute = async (inter) => {
   module.exports.help = {
     name: "deployroles",
   }
+
   module.exports.slashData=(client,guildID)=>{
     // console.log(client.guilds.cache.get(`${guildID}`).roles.cache.size)
     const data= {

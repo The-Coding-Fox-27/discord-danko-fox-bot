@@ -1,12 +1,13 @@
 path=require("path")
 const slashDataList=require(path.resolve(__dirname, './bot')).slashDataList
+
 async function createCommand(client, guildId) {
   var Data=[]
-  // console.log(slashDataList.length)
   slashDataList.forEach(slashData=>{
-    Data.push(slashData(client,guildId))
-  })
 
+    Data.push(slashData(client,guildId))
+  
+  })
   await client.guilds.cache.get(guildId)?.commands.set(Data);
 }
 

@@ -18,6 +18,7 @@ const client= new discord.Client({
     intents:myIntents,
     allowedMentions:{parse:["users","roles"],repliedUser:true}
 })
+
 client.slashCommands=new discord.Collection()
 client.eventHandler=new discord.Collection()
 var slashDataList=[]
@@ -48,11 +49,14 @@ fs.readdir(path.resolve(__dirname, './events'),(err,files)=>{
 fs.readdir(path.resolve(__dirname, './slashcommands/test'),(err,files)=>{
     if(err) throw err
     var slashFiles= files.filter(file=>file.endsWith(".js"))
+
     slashFiles.forEach(file=>{
+        
         var slashCommand=require(path.resolve(__dirname, './slashcommands/test')+"/"+file)
         try{
             client.slashCommands.set(slashCommand.help.name,slashCommand)
             slashDataList.push(slashCommand.slashData)
+        
         } catch(err){
             return console.log(err)
         }
@@ -61,8 +65,6 @@ fs.readdir(path.resolve(__dirname, './slashcommands/test'),(err,files)=>{
 
 
 //When we need information to be sent to files
-
-
 module.exports.client=client
 module.exports.slashDataList=slashDataList
 

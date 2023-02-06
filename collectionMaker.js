@@ -45,6 +45,7 @@ function createRoleDocument(roleid,emoji,channel){
     }
     
 }
+
 function createMessageDocument(messageid,mesContent,channelid){
     try{
         const messagedocument=new roleMessageModel({
@@ -80,7 +81,6 @@ function createHornyDocument(userid,sentence,channelid){
     }
     
 }
-
 
 module.exports.roleModel=roleModel
 module.exports.roleMessageModel=roleMessageModel
