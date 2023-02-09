@@ -35,10 +35,6 @@ module.exports.execute = async (inter) => {
       
       await member.roles.add(searchRole)
       await inter.channel.send(`Hear ye, hear ye ${member} has been placed in horny jail for ${duration} days. Pray for your sins.`)
-      // setTimeout(async ()=>{
-      //   await inter.channel.send("hiii")
-      // },10000)
-      //ephermeral is basically stating its only seen by you
       return await inter.reply({ content: "USER has been placed in horny jail" ,ephemeral: true});
     }
     

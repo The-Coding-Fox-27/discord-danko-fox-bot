@@ -37,19 +37,7 @@ client.on("ready", async () => {
     }
   })
  
-  //If bot undergoes maintenace, we will use this to clear horny jail
-  // const today=new Date(Date.now())
-  // const day = new Date(today.getFullYear(), today.getMonth(), today.getDate() )
-  // const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
-  // hornyList= await collectionMaker.hornyModel.find({sentence:{
-  //   $gte: day, 
-  //   $lt: tomorrow}
-  // })
-  // hornyList.forEach(async(i)=>{
-  //   targetChannel=await Channels.fetch(i.channelid)
-  //   targetUser=await targetChannel.member.fetch(i.userid)
-  //   await targetChannel.send(`Okay ${targetUser}, you have served your sentence. You are free from horny jail`)
-  // })
+
   hornyjailchecker(Channels)
 
   

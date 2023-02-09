@@ -23,8 +23,9 @@ async function hornyjailchecker(Channels){
         console.log(err)
     }
     await collectionMaker.hornyModel.deleteOne({userid:i.userid})
+    
     })
-
+    return 0
 }
 if (require.main === module) {
     
