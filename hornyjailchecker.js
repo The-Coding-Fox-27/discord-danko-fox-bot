@@ -1,6 +1,6 @@
 path=require("path")
 const collectionMaker=require(path.resolve(__dirname, "./collectionMaker"))
-const client = require(path.resolve(__dirname, "./bot")).client
+const client = require(path.resolve(__dirname, "./bot")).client.channles
 async function hornyjailchecker(Channels){
 
     const today=new Date(Date.now())
