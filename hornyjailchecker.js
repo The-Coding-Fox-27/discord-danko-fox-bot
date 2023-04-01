@@ -1,10 +1,10 @@
 path=require("path")
 const collectionMaker=require(path.resolve(__dirname, "./collectionMaker"))
-const client = require(path.resolve(__dirname, "./bot")).client.channles
+const client = require(path.resolve(__dirname, "./bot")).client
 async function hornyjailchecker(Channels){
 
     const today=new Date(Date.now())
-    const day = new Date(today.getFullYear(), today.getMonth(), today.getDate() )
+    //const day = new Date(today.getFullYear(), today.getMonth(), today.getDate() )
     
     const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
     let hornyList= await collectionMaker.hornyModel.find({sentence:{
@@ -12,7 +12,7 @@ async function hornyjailchecker(Channels){
     $lt: tomorrow}
     })
 
-    hornyList.forEach(async(i)=>{
+    for(const i of hornyList){
         let targetChannel=await Channels.fetch(i.channelid)
         let targetUser=await targetChannel.guild.members.fetch(i.userid)
         let searchRole=await targetChannel.guild.roles.cache.find(role=>role.name=="Horny jail")
@@ -23,7 +23,7 @@ async function hornyjailchecker(Channels){
             console.log(err)
         }
         await collectionMaker.hornyModel.deleteOne({userid:i.userid})
-    })
+    }
 }
 if (require.main === module) {
     
