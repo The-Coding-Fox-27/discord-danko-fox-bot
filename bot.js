@@ -66,6 +66,7 @@ fs.readdir(path.resolve(__dirname, './slashcommands/test'),(err,files)=>{
 
 //When we need information to be sent to files
 module.exports.client=client
+module.exports.channels=client.channels
 module.exports.slashDataList=slashDataList
 
 client.login(process.env.TOKEN);
